@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -71,6 +71,22 @@ const DoctorList = () => {
     },
   ];
 
+  const [status, setStatus] = useState(
+    Array(doctors.length).fill(null) // Initially, all doctors have no status (accepted/declined)
+  );
+
+  const handleAccept = (index) => {
+    const newStatus = [...status];
+    newStatus[index] = "accepted";
+    setStatus(newStatus);
+  };
+
+  const handleDecline = (index) => {
+    const newStatus = [...status];
+    newStatus[index] = "declined";
+    setStatus(newStatus);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
       {/* Navigation Bar */}
@@ -113,15 +129,12 @@ const DoctorList = () => {
           Pending Cases
         </Text>
         {doctors.map((doctor, index) => (
-          <TouchableOpacity
+          <View
             key={index}
-            onPress={() => navigation.navigate("PatientDetails", { doctor })}
             style={{
-              flexDirection: "row",
-              alignItems: "center",
-              padding: 16,
               backgroundColor: "#fff",
               borderRadius: 10,
+              padding: 16,
               marginBottom: 12,
               shadowColor: "#000",
               shadowOffset: { width: 0, height: 2 },
@@ -129,28 +142,81 @@ const DoctorList = () => {
               shadowRadius: 5,
             }}
           >
-            <Image
-              source={{
-                uri: doctor.photo
-                  ? doctor.photo
-                  : "https://via.placeholder.com/50",
-              }}
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: 25,
-                marginRight: 16,
-              }}
-            />
-            <View>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                {doctor.name}
-              </Text>
-              <Text style={{ fontSize: 16, color: "#777" }}>
-                {doctor.specialty}
-              </Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Image
+                source={{
+                  uri: doctor.photo
+                    ? doctor.photo
+                    : "https://via.placeholder.com/50",
+                }}
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 25,
+                  marginRight: 16,
+                }}
+              />
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+                  {doctor.name}
+                </Text>
+                <Text style={{ fontSize: 16, color: "#777" }}>
+                  {doctor.specialty}
+                </Text>
+              </View>
             </View>
-          </TouchableOpacity>
+
+            {/* Conditionally render Accept and Decline buttons */}
+            {status[index] === null && (
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                  marginTop: 10,
+                }}
+              >
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#28a745",
+                    padding: 10,
+                    borderRadius: 5,
+                    marginRight: 10,
+                  }}
+                  onPress={() => handleAccept(index)}
+                >
+                  <Text style={{ color: "#fff", fontWeight: "bold" }}>
+                    Accept
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#dc3545",
+                    padding: 10,
+                    borderRadius: 5,
+                  }}
+                  onPress={() => handleDecline(index)}
+                >
+                  <Text style={{ color: "#fff", fontWeight: "bold" }}>
+                    Decline
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            )}
+
+            {/* Show Tick or Cross */}
+            {status[index] === "accepted" && (
+              <View style={{ flexDirection: "row", marginTop: 10 }}>
+                <Icon name="check" size={20} color="green" />
+                <Text style={{ marginLeft: 10, color: "green" }}>Accepted</Text>
+              </View>
+            )}
+            {status[index] === "declined" && (
+              <View style={{ flexDirection: "row", marginTop: 10 }}>
+                <Icon name="times" size={20} color="red" />
+                <Text style={{ marginLeft: 10, color: "red" }}>Declined</Text>
+              </View>
+            )}
+          </View>
         ))}
       </ScrollView>
     </View>

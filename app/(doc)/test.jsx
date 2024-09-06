@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   innerContainer: {
-    backgroundColor: '#FFF', // White background (inner content)
+    backgroundColor: '', // White background (inner content)
     borderRadius: 30, // For rounded edges
     flex: 1,
     width: '100%',
