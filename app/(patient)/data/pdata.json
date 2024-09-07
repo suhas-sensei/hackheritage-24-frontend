@@ -1,0 +1,213 @@
+
+{
+    "prescriptions": [
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Mild fever and sore throat",
+        "medication": "Paracetamol 500mg - 2 times a day",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Seasonal allergy with mild rash",
+        "medication": "Cetirizine 10mg - Once a day",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Migraine headaches",
+        "medication": "Ibuprofen 400mg - As needed",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Urinary tract infection (UTI)",
+        "medication": "Nitrofurantoin 100mg - 2 times a day",
+        "tests": "Urine culture"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Hypertension",
+        "medication": "Lisinopril 10mg - Once a day",
+        "tests": "Blood pressure monitoring"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Iron deficiency anemia",
+        "medication": "Ferrous sulfate 325mg - Once a day",
+        "tests": "Complete blood count (CBC)"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Acute bronchitis",
+        "medication": "Amoxicillin 500mg - 3 times a day",
+        "tests": "Chest X-ray"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Gastroesophageal reflux disease (GERD)",
+        "medication": "Omeprazole 20mg - Once a day",
+        "tests": "Upper endoscopy (if symptoms persist)"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Acute sinusitis",
+        "medication": "Augmentin 875mg - Twice a day",
+        "tests": "Sinus CT scan (if no improvement)"
+      },
+      {
+        "name": "Alice Smith",
+        "age": 30,
+        "gender": "Female",
+        "summary_of_diagnosis": "Vitamin D deficiency",
+        "medication": "Vitamin D3 2000 IU - Once a day",
+        "tests": "25-Hydroxy vitamin D blood test"
+      },
+  
+      {
+        "name": "Bob Johnson",
+        "age": 45,
+        "gender": "Male",
+        "summary_of_diagnosis": "High cholesterol",
+        "medication": "Atorvastatin 20mg - Once a day",
+        "tests": "Lipid profile"
+      },
+      {
+        "name": "Bob Johnson",
+        "age": 45,
+        "gender": "Male",
+        "summary_of_diagnosis": "Type 2 diabetes",
+        "medication": "Metformin 500mg - Twice a day",
+        "tests": "HbA1c"
+      },
+      {
+        "name": "Bob Johnson",
+        "age": 45,
+        "gender": "Male",
+        "summary_of_diagnosis": "Chronic back pain",
+        "medication": "Naproxen 250mg - As needed",
+        "tests": "MRI scan"
+      },
+      {
+        "name": "Bob Johnson",
+        "age": 45,
+        "gender": "Male",
+        "summary_of_diagnosis": "Seasonal allergies",
+        "medication": "Loratadine 10mg - Once a day",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Bob Johnson",
+        "age": 45,
+        "gender": "Male",
+        "summary_of_diagnosis": "Anxiety",
+        "medication": "Alprazolam 0.25mg - As needed",
+        "tests": "Psychiatric evaluation"
+      },
+  
+      {
+        "name": "Charlie Brown",
+        "age": 25,
+        "gender": "Male",
+        "summary_of_diagnosis": "Mild acne",
+        "medication": "Clindamycin 1% gel - Twice a day",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Charlie Brown",
+        "age": 25,
+        "gender": "Male",
+        "summary_of_diagnosis": "Asthma",
+        "medication": "Salbutamol Inhaler - As needed",
+        "tests": "Spirometry"
+      },
+      {
+        "name": "Charlie Brown",
+        "age": 25,
+        "gender": "Male",
+        "summary_of_diagnosis": "Seasonal allergies",
+        "medication": "Fexofenadine 180mg - Once a day",
+        "tests": "Allergy skin test"
+      },
+      {
+        "name": "Charlie Brown",
+        "age": 25,
+        "gender": "Male",
+        "summary_of_diagnosis": "GERD",
+        "medication": "Pantoprazole 40mg - Once a day",
+        "tests": "Endoscopy"
+      },
+      {
+        "name": "Charlie Brown",
+        "age": 25,
+        "gender": "Male",
+        "summary_of_diagnosis": "Insomnia",
+        "medication": "Zolpidem 10mg - As needed",
+        "tests": "Sleep study"
+      },
+  
+      {
+        "name": "Daisy Ridley",
+        "age": 35,
+        "gender": "Female",
+        "summary_of_diagnosis": "Hypothyroidism",
+        "medication": "Levothyroxine 100mcg - Once a day",
+        "tests": "TSH levels"
+      },
+      {
+        "name": "Daisy Ridley",
+        "age": 35,
+        "gender": "Female",
+        "summary_of_diagnosis": "Allergic rhinitis",
+        "medication": "Fluticasone nasal spray - Once a day",
+        "tests": "No tests required"
+      },
+      {
+        "name": "Daisy Ridley",
+        "age": 35,
+        "gender": "Female",
+        "summary_of_diagnosis": "Osteoarthritis",
+        "medication": "Glucosamine sulfate - Once a day",
+        "tests": "X-ray of joints"
+      },
+      {
+        "name": "Daisy Ridley",
+        "age": 35,
+        "gender": "Female",
+        "summary_of_diagnosis": "Chronic fatigue syndrome",
+        "medication": "Vitamin B12 supplements - Once a day",
+        "tests": "Vitamin B12 levels"
+      },
+      {
+        "name": "Daisy Ridley",
+        "age": 35,
+        "gender": "Female",
+        "summary_of_diagnosis": "Hypertension",
+        "medication": "Amlodipine 5mg - Once a day",
+        "tests": "Blood pressure monitoring"
+      }
+    ]
+  }
+
+
+
+
+

@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal, TextInput, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useRouter } from 'expo-router'; // Import useRouter for navigation
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [loginType, setLoginType] = useState(''); // State to track the login type
+  const router = useRouter(); // Initialize the router for navigation
 
   const handleLoginType = (type) => {
     setLoginType(type);
     setModalVisible(true);
+  };
+
+  const handleSignIn = () => {
+    if (loginType === 'Hospital') {
+      router.push('../(supadmin)/index4'); // Redirect to hospital page
+    } else if (loginType === 'SuperAdmin') {
+      router.push('../(tabs)/patient-page'); // Redirect to super admin page
+    }
+    setModalVisible(false); // Close modal after signing in
   };
 
   const getPlaceholderForID = () => {
@@ -89,7 +100,7 @@ export default function Index() {
                 />
               </View>
             )}
-            <TouchableOpacity style={styles.signInButton}>
+            <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
               <Text style={styles.signInButtonText}>{isSignUp ? 'Sign Up' : 'Sign In'}</Text>
             </TouchableOpacity>
 
