@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Modal, TextInput, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Modal, TextInput, Image, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Link, useRouter } from 'expo-router'; // Import useRouter for programmatic navigation
+import { Link, useRouter, Stack } from 'expo-router'; // Import Stack for customizing screen options
+import patientData from '../(patient)/data/pdata.json';
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [loginType, setLoginType] = useState(''); // State to track the login type
+  const [username, setUsername] = useState(''); // State for username input
+  const [password, setPassword] = useState(''); // State for password input (assuming)
   const router = useRouter(); // Initialize the router for navigation
 
   const handleLoginType = (type) => {
@@ -16,10 +19,19 @@ export default function Index() {
 
   const handleSignIn = () => {
     if (loginType === 'Patient') {
-      router.push('../(patient)/index3'); // Redirect to patient page on sign-in
+      // Check if the username exists in the pdata.json file for patient login
+      const userExists = patientData.prescriptions.some(
+        (patient) => patient.name.toLowerCase() === username.toLowerCase()
+      );
+      if (userExists) {
+        router.push('../(patient)/index3'); // Redirect to patient page if the username exists
+      } else {
+        Alert.alert('Error', 'Username not found in the patient records');
+      }
     } else if (loginType === 'Doctor') {
       router.push('../(moc)/index2'); // Redirect to doctor page on sign-in
     }
+
     setModalVisible(false); // Close modal after signing in
   };
 
@@ -39,94 +51,110 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Logo */}
-      <Image source={{ uri: "https://i.ibb.co/8zhYbVy/Whats-App-Image-2024-09-07-at-04-26-02-b62f16f3.jpg" }} style={styles.logo} />
-      <Text style={styles.title}>Welcome Back!</Text>
-      <Text style={styles.subtitle}>Use credentials to access your account</Text>
+    <>
+      {/* Disable the header */}
+      <Stack.Screen options={{ headerShown: false }} />
       
-      <TouchableOpacity style={styles.button} onPress={() => handleLoginType('Patient')}>
-        <Icon name="user" size={20} color="#FFFFFF" style={styles.icon} />
-        <Text style={styles.buttonText}>Login as Patient</Text>
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.button} onPress={() => handleLoginType('Doctor')}>
-        <Icon name="stethoscope" size={20} color="#FFFFFF" style={styles.icon} />
-        <Text style={styles.buttonText}>Login as Doctor</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        {/* Logo */}
+        <Image
+          source={{
+            uri: "https://i.ibb.co/8zhYbVy/Whats-App-Image-2024-09-07-at-04-26-02-b62f16f3.jpg",
+          }}
+          style={styles.logo}
+        />
+        <Text style={styles.title}>Welcome Back!</Text>
+        <Text style={styles.subtitle}>Use credentials to access your account</Text>
 
-      {/* Modal */}
-      <Modal
-        transparent={true}
-        animationType="slide"
-        visible={modalVisible}
-        onRequestClose={handleCloseModal}
-      >
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContainer}>
-            <View style={styles.modalTabs}>
-              <TouchableOpacity onPress={() => setIsSignUp(false)}>
-                <Text style={!isSignUp ? styles.activeTab : styles.inactiveTab}>Sign In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setIsSignUp(true)}>
-                <Text style={isSignUp ? styles.activeTab : styles.inactiveTab}>Sign Up</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.inputContainer}>
-              <Icon name="user" size={20} color="#7E7E7E" />
-              <TextInput
-                style={styles.input}
-                placeholder={isSignUp ? "Email" : "Username or email"}
-                placeholderTextColor="#7E7E7E"
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <Icon name="lock" size={20} color="#7E7E7E" />
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                secureTextEntry
-                placeholderTextColor="#7E7E7E"
-              />
-            </View>
-            {isSignUp && (
+        <TouchableOpacity style={styles.button} onPress={() => handleLoginType('Patient')}>
+          <Icon name="user" size={20} color="#FFFFFF" style={styles.icon} />
+          <Text style={styles.buttonText}>Login as Patient</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => handleLoginType('Doctor')}>
+          <Icon name="stethoscope" size={20} color="#FFFFFF" style={styles.icon} />
+          <Text style={styles.buttonText}>Login as Doctor</Text>
+        </TouchableOpacity>
+
+        {/* Modal */}
+        <Modal
+          transparent={true}
+          animationType="slide"
+          visible={modalVisible}
+          onRequestClose={handleCloseModal}
+        >
+          <View style={styles.modalBackground}>
+            <View style={styles.modalContainer}>
+              <View style={styles.modalTabs}>
+                <TouchableOpacity onPress={() => setIsSignUp(false)}>
+                  <Text style={!isSignUp ? styles.activeTab : styles.inactiveTab}>Sign In</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setIsSignUp(true)}>
+                  <Text style={isSignUp ? styles.activeTab : styles.inactiveTab}>Sign Up</Text>
+                </TouchableOpacity>
+              </View>
               <View style={styles.inputContainer}>
-                <Icon name="id-card" size={20} color="#7E7E7E" />
+                <Icon name="user" size={20} color="#7E7E7E" />
                 <TextInput
                   style={styles.input}
-                  placeholder={getPlaceholderForID()}
+                  placeholder={isSignUp ? 'Email' : 'Username or email'}
                   placeholderTextColor="#7E7E7E"
+                  value={username}
+                  onChangeText={setUsername} // Track username input
                 />
               </View>
-            )}
-            <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
-              <Text style={styles.signInButtonText}>{isSignUp ? 'Sign Up' : 'Sign In'}</Text>
-            </TouchableOpacity>
-
-            {/* New Text for Doctor login */}
-            {loginType === 'Doctor' && !isSignUp && (
-              <TouchableOpacity onPress={handleCloseModal}>
-                <Text style={styles.switchLoginText}>
-                  Not a Doctor?
-                  <Link href="/login" asChild>
-                    <Text style={styles.linkText}> Sign In as an Authority</Text>
-                  </Link>
-                </Text>
+              <View style={styles.inputContainer}>
+                <Icon name="lock" size={20} color="#7E7E7E" />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Password"
+                  secureTextEntry
+                  placeholderTextColor="#7E7E7E"
+                  value={password}
+                  onChangeText={setPassword} // Track password input
+                />
+              </View>
+              {isSignUp && (
+                <View style={styles.inputContainer}>
+                  <Icon name="id-card" size={20} color="#7E7E7E" />
+                  <TextInput
+                    style={styles.input}
+                    placeholder={getPlaceholderForID()}
+                    placeholderTextColor="#7E7E7E"
+                  />
+                </View>
+              )}
+              <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
+                <Text style={styles.signInButtonText}>{isSignUp ? 'Sign Up' : 'Sign In'}</Text>
               </TouchableOpacity>
-            )}
 
-            <TouchableOpacity style={styles.closeButton} onPress={handleCloseModal}>
-              <Text style={styles.closeButtonText}>X</Text>
-            </TouchableOpacity>
+              {/* New Text for Doctor login */}
+              {loginType === 'Doctor' && !isSignUp && (
+                <TouchableOpacity onPress={handleCloseModal}>
+                  <Text style={styles.switchLoginText}>
+                    Not a Doctor?
+                    <Link href="/login" asChild>
+                      <Text style={styles.linkText}> Sign In as an Authority</Text>
+                    </Link>
+                  </Text>
+                </TouchableOpacity>
+              )}
+
+              <TouchableOpacity style={styles.closeButton} onPress={handleCloseModal}>
+                <Text style={styles.closeButtonText}>X</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+        </Modal>
+
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>
+            By creating this account you agree to our{' '}
+            <Text style={styles.link}>Privacy Policy</Text>
+          </Text>
         </View>
-      </Modal>
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          By creating this account you agree to our <Text style={styles.link}>Privacy Policy</Text>
-        </Text>
       </View>
-    </View>
+    </>
   );
 }
 
@@ -235,32 +263,31 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
+    color: '#FF0000',
   },
-  switchLoginText: {
-    marginTop: 10,
+  footer: {
+    position: 'absolute',
+    bottom: 30,
+    width: '80%',
+    alignItems: 'center',
+  },
+  footerText: {
     fontSize: 12,
     color: '#7E7E7E',
     textAlign: 'center',
   },
-  linkText: {
-    color: '#4D2D52',
-  },
-  footer: {
-    marginTop: 20,
-    alignItems: 'center',
-    paddingHorizontal: 20,
-  },
-  footerText: {
-    fontSize: 13,
-    color: '#7E7E7E',
-    marginTop: 20,
-    textAlign: 'center',
-    bottom: -60,
-  },
   link: {
-    color: '#000000',
+    color: '#125491',
+    fontWeight: 'bold',
+  },
+  switchLoginText: {
+    color: '#7E7E7E',
+    marginTop: 15,
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  linkText: {
+    color: '#125491',
     fontWeight: 'bold',
   },
 });

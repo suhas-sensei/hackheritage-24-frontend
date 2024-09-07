@@ -18,7 +18,7 @@ export default function Index() {
     if (loginType === 'Hospital') {
       router.push('../(supadmin)/index4'); // Redirect to hospital page
     } else if (loginType === 'SuperAdmin') {
-      router.push('../(tabs)/patient-page'); // Redirect to super admin page
+      router.push('../(tabs)/samola'); // Redirect to super admin page
     }
     setModalVisible(false); // Close modal after signing in
   };
@@ -35,6 +35,7 @@ export default function Index() {
   };
 
   return (
+    
     <View style={styles.container}>
       {/* Logo */}
       <Image source={{ uri: "https://i.ibb.co/8zhYbVy/Whats-App-Image-2024-09-07-at-04-26-02-b62f16f3.jpg" }} style={styles.logo} />

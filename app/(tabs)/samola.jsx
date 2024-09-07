@@ -6,9 +6,9 @@ import {
   ScrollView,
   SafeAreaView,
   TouchableOpacity,
-  Linking,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useRouter } from "expo-router"; // Import useRouter for navigation
 
 const DoctorList = () => {
   const doctors = [
@@ -69,12 +69,14 @@ const DoctorList = () => {
       specialty: "Suffering from Osteoporosis",
       photo: "https://i.ibb.co/JmBWfDW/image.png",
     },
+    // Add more doctors here...
   ];
 
+  const router = useRouter(); // Initialize useRouter hook
+
   const handleRedirect = (doctorId) => {
-    // Simulating navigation to a patient page using Linking
-    const url = `patient-page?id=${doctorId}`;
-    Linking.openURL(url).catch((err) => console.error("Failed to open URL:", err));
+    // Programmatically navigate to the patient page in the app
+    router.push(`/patient-page?id=${doctorId}`);
   };
 
   const [status, setStatus] = useState(
