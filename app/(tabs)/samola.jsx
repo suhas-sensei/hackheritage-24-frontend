@@ -15,23 +15,23 @@ const DoctorList = () => {
 
   const doctors = [
     {
-      name: "Ram Prasad",
-      specialty: "Suffering from Diabetes",
-      photo: "https://i.ibb.co/JmBWfDW/image.png",
+      name: "Alice Smith",
+      specialty: "Suffering from Urinary Tract Infection",
+      photo: "https://randomuser.me/api/portraits/women/29.jpg",
     },
     {
-      name: "Shyam Akalu",
-      specialty: "Suffering from Heart Disease",
+      name: "Bob Johnson",
+      specialty: "Suffering from Type 2 Diabetes",
       photo: "https://randomuser.me/api/portraits/men/30.jpg",
     },
     {
-      name: "Sontu Kumar",
-      specialty: "Suffering from Hypertension",
+      name: "Charlie Brown",
+      specialty: "Suffering from GERD",
       photo: "https://randomuser.me/api/portraits/men/38.jpg",
     },
     {
-      name: "Urmila Devi",
-      specialty: "Suffering from Asthma",
+      name: "Daisy Ridley",
+      specialty: "Suffering from Hypertension",
       photo: "https://randomuser.me/api/portraits/women/22.jpg",
     },
     {
@@ -70,7 +70,7 @@ const DoctorList = () => {
       photo: "https://i.ibb.co/JmBWfDW/image.png",
     },
   ];
-
+  
   const [status, setStatus] = useState(
     Array(doctors.length).fill(null) // Initially, all doctors have no status (accepted/declined)
   );
