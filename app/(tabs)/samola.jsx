@@ -6,23 +6,23 @@ import {
   ScrollView,
   SafeAreaView,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useNavigation } from "@react-navigation/native";
 
 const DoctorList = () => {
-  const navigation = useNavigation();
-
   const doctors = [
     {
       name: "Alice Smith",
       specialty: "Suffering from Urinary Tract Infection",
       photo: "https://randomuser.me/api/portraits/women/29.jpg",
+      id: 1,
     },
     {
       name: "Bob Johnson",
       specialty: "Suffering from Type 2 Diabetes",
       photo: "https://randomuser.me/api/portraits/men/30.jpg",
+      id: 2,
     },
     {
       name: "Charlie Brown",
@@ -70,7 +70,13 @@ const DoctorList = () => {
       photo: "https://i.ibb.co/JmBWfDW/image.png",
     },
   ];
-  
+
+  const handleRedirect = (doctorId) => {
+    // Simulating navigation to a patient page using Linking
+    const url = `patient-page?id=${doctorId}`;
+    Linking.openURL(url).catch((err) => console.error("Failed to open URL:", err));
+  };
+
   const [status, setStatus] = useState(
     Array(doctors.length).fill(null) // Initially, all doctors have no status (accepted/declined)
   );
@@ -129,8 +135,9 @@ const DoctorList = () => {
           Pending Cases
         </Text>
         {doctors.map((doctor, index) => (
-          <View
+          <TouchableOpacity
             key={index}
+            onPress={() => handleRedirect(doctor.id)} // Redirect when the card is pressed
             style={{
               backgroundColor: "#fff",
               borderRadius: 10,
@@ -216,7 +223,7 @@ const DoctorList = () => {
                 <Text style={{ marginLeft: 10, color: "red" }}>Declined</Text>
               </View>
             )}
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
