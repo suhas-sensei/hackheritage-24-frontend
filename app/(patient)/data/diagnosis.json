@@ -1,0 +1,35 @@
+[
+    {
+      "name": "Alice Smith",
+      "age": 30,
+      "gender": "Female",
+      "summary_of_diagnosis": "Urinary tract infection (UTI), Hypertension, Mild fever and sore throat, Seasonal allergy with mild rash, Iron deficiency anemia, Acute sinusitis, Gastroesophageal reflux disease (GERD), Migraine headaches, Vitamin D deficiency, Acute bronchitis",
+      "medication": "Ferrous sulfate 325mg, Lisinopril 10mg, Amoxicillin 500mg, Augmentin 875mg, Vitamin D3 2000 IU, Omeprazole 20mg, Nitrofurantoin 100mg",
+      "tests": "Upper endoscopy (if symptoms persist), Sinus CT scan (if no improvement), 25-Hydroxy vitamin D blood test, Urine culture, Chest X-ray, Blood pressure monitoring, Complete blood count (CBC)"
+    },
+    {
+      "name": "Bob Johnson",
+      "age": 45,
+      "gender": "Male",
+      "summary_of_diagnosis": "Type 2 diabetes, Seasonal allergies, Chronic back pain, High cholesterol, Anxiety",
+      "medication": "Naproxen 250mg, Metformin 500mg, Alprazolam 0.25mg, Atorvastatin 20mg",
+      "tests": "HbA1c, Psychiatric evaluation, Lipid profile, MRI scan"
+    },
+    {
+      "name": "Charlie Brown",
+      "age": 25,
+      "gender": "Male",
+      "summary_of_diagnosis": "GERD, Seasonal allergies, Mild acne, Insomnia, Asthma",
+      "medication": "Salbutamol Inhaler, Clindamycin 1% gel, Pantoprazole 40mg, Zolpidem 10mg",
+      "tests": "Allergy skin test, Endoscopy, Spirometry, Sleep study"
+    },
+    {
+      "name": "Daisy Ridley",
+      "age": 35,
+      "gender": "Female",
+      "summary_of_diagnosis": "Allergic rhinitis, Hypertension, Hypothyroidism, Osteoarthritis, Chronic fatigue syndrome",
+      "medication": "Vitamin B12 supplements, Glucosamine sulfate, Fluticasone nasal spray, Levothyroxine 100mcg, Amlodipine 5mg",
+      "tests": "TSH levels, X-ray of joints, Blood pressure monitoring, Vitamin B12 levels"
+    }
+  ]
+  

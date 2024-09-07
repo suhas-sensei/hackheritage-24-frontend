@@ -4,6 +4,8 @@ import QRCode from 'react-native-qrcode-svg';
 
 // Your updated prescription data
 const prescriptions = {
+  
+
   "prescriptions": [
     {
       "name": "Alice Smith",
@@ -208,9 +210,14 @@ const prescriptions = {
       "medication": "Amlodipine 5mg - Once a day",
       "tests": "Blood pressure monitoring"
     }
-    
   ]
-};
+}
+
+
+
+
+
+
 
 const QuranAppScreen = () => {
   const [showQR, setShowQR] = useState(false);
