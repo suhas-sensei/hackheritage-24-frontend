@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+# Health Data Information & Management System (HDIMS)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Project Overview
 
-## Get started
+The *Health Data Information & Management System (HDIMS)* is a mobile application designed to streamline the collection, entry, and management of health data from hospitals and health departments. This application enables real-time updates, efficient reporting, and centralized visibility for the *Super Admin* to monitor, implement, and provide insights for health programs and schemes.
 
-1. Install dependencies
+The HDIMS app provides a robust data flow from facility level to sub-district, district, and state/union territory levels, supporting data-driven decision-making for healthcare policy formulation and interventions. The system also aims to enhance transparency, equity, and efficiency in healthcare management.
 
+---
+
+## Key Features
+
+- *For Providers*:
+  - Efficient Data Entry
+  - Real-time Updates on Healthcare Data
+  - Streamlined Reporting
+  - Performance Visibility Across Facilities
+
+- *For Policymakers*:
+  - Access to Health Data for Better Monitoring
+  - Identification of Trends in Health Programs
+  - Data-Driven Decision Making for Health Policies
+  - Enhanced Monitoring of Schemes and Programs
+
+---
+
+## Solution Benefits
+
+- *Social*:
+  - Improved Healthcare Efficiency
+  - Better Health Outcomes
+  - Transparency in Data and Reporting
+  - Promotes Equity in Healthcare Programs
+
+- *Economic*:
+  - Cost Savings from Reduced Administrative Burden
+  - Early Intervention in Health Programs
+  - Improved Efficiency in Health Schemes
+
+- *Environmental*:
+  - Reduction in Paper Usage
+  - Less Need for Physical Transport for Reporting
+
+---
+
+## Technology Stack
+
+- *Frontend*: React Native (for mobile interface)
+- *Backend*: Express.js
+- *Database*: MongoDB, PostgreSQL
+- *Machine Learning*: SpaCy
+
+---
+
+## Contributors
+
+This project is collaboratively developed by:
+
+1. *Sayak Ghosh*
+2. *Iman Dutta*
+3. *Asmita Sen*
+4. *Suhas Ghosal*
+5. *Soumadip Maity*
+6. *Ayan Dasgupta* 
+
+---
+
+## Installation & Setup
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- React Native (for mobile app)
+
+### Installation
+
+1. Clone the repository:
    ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   git clone https://github.com/AD9190/Meditech-SIH
+2. App Link
+  ```
+  https://drive.google.com/file/d/12tl131shUYAJOqsksd9B7ITpoMnzmZd5/view?usp=drivesdk
